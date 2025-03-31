@@ -1,0 +1,418 @@
+// .cardImage {
+//   position: relative;
+//   border-radius: inherit;
+//   width: 100%;
+//   height: auto;
+//   max-width: 300px;
+//   object-fit: cover;
+
+
+//   &:hover {
+
+//     .cardImage-slider__nav,
+//     .pagination__item {
+//       opacity: 1 !important;
+//     }
+//   }
+
+//   &__content {
+//     position: relative;
+//     width: 100%;
+//     border-radius: inherit;
+
+//     img {
+//       width: 100%;
+//       object-fit: cover;
+//       border-radius: inherit;
+//     }
+//   }
+
+//   .cardImage-slider {
+//     .swiper-wrapper {
+//       position: relative;
+//       z-index: 0;
+//     }
+
+//     &__pagination {
+//       position: absolute;
+//       bottom: 10px;
+//       left: 50%;
+//       transform: translateX(-50%);
+//       display: flex;
+//       color: rgba(white, 0.7);
+//       z-index: 2;
+
+//       .pagination__item {
+//         height: 6px;
+//         width: 6px;
+//         border-radius: 50%;
+//         background-color: currentColor;
+//         transition: all 0.3s ease-out;
+//         transform: scale(0.75);
+//         opacity: 0;
+
+//         &.is-active {
+//           transform: scale(1);
+//           background-color: var(--color-white);
+//           opacity: 1;
+//         }
+//       }
+//     }
+
+//     &__nav {
+//       position: absolute;
+//       top: 50%;
+//       transform: translateY(-50%);
+//       transition: opacity 0.2s ease-out;
+//       opacity: 0;
+//       z-index: 2;
+
+//       &.-prev {
+//         left: 10px;
+//       }
+
+//       &.-next {
+//         right: 10px;
+//       }
+//     }
+//   }
+
+//   // Left Badge (No Changes)
+//   &__leftBadge {
+//     position: absolute;
+//     top: 20px;
+//     left: 0;
+//     z-index: 1;
+//   }
+
+//   // Wishlist (No Changes)
+//   &__wishlist {
+//     position: absolute;
+//     top: 20px;
+//     right: 20px;
+//     left: auto;
+//     width: auto;
+//     height: auto;
+//     z-index: 1;
+
+//     &.-sm {
+//       top: 10px;
+//       right: 10px;
+//     }
+//   }
+// }
+
+// @media (min-width: 768px) and (max-width: 992px) {
+//   .cardImage {
+//     width: 100%;
+//     height: 100%;
+//     max-width: 100%;
+//     min-width: 60vw;
+//     align-items: center;
+//     justify-content: center;
+//     object-position: center;
+//     object-fit: cover;
+//     /* Adjust width for better fit */
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .cardImage {
+//     width: 100%;
+//     height: 100%;
+//     max-width: 100%;
+//     min-width: 60vw;
+//     align-items: center;
+//     justify-content: center;
+//     object-position: center;
+//     object-fit: cover;
+//   }
+// }
+
+// // /* For screens up to 768px */
+// // @media (max-width: 768px) {
+// //   .cardImage {
+// //     width: 100%;
+// //     /* Ensure it takes full width */
+// //     height: 100%;
+// //     /* Maintain aspect ratio */
+// //   }
+// // }
+
+/* Global Responsive Font Sizes */
+html {
+  font-size: 14px; // Base font size
+
+  @media (min-width: 576px) {
+    font-size: 15px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 15px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 2560px) {
+    font-size: 18px; // 4K screens
+  }
+}
+
+/* Venue Card Container */
+.venue-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 15px 0;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Card Image Section (on top) */
+.cardImage {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .cardImage-slider {
+    .swiper-wrapper {
+      position: relative;
+      z-index: 0;
+    }
+
+    &__pagination {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      z-index: 2;
+
+      .pagination__item {
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background-color: currentColor;
+        transition: all 0.3s ease-out;
+        transform: scale(0.75);
+        opacity: 0;
+
+        &.is-active {
+          transform: scale(1);
+          background-color: #fff;
+          opacity: 1;
+        }
+      }
+    }
+
+    &__nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.2s ease-out;
+      opacity: 0;
+      z-index: 2;
+
+      &.-prev {
+        left: 10px;
+      }
+
+      &.-next {
+        right: 10px;
+      }
+    }
+  }
+
+  /* Left Badge */
+  &__leftBadge {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    z-index: 1;
+
+    div {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 4px 8px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      font-size: 0.7rem;
+    }
+  }
+
+  /* Wishlist Button */
+  &__wishlist {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+
+    button {
+      border: none;
+      background-color: #fff;
+      padding: 6px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
+
+      i {
+        color: #ff385c;
+      }
+    }
+  }
+}
+
+/* Venue Card Content Section (data below image) */
+.venue-card__content {
+  padding: 10px 5px;
+
+  @media (max-width: 768px) {
+    // padding: 15px;
+  }
+
+  .venue-card__title {
+    font-size: 1.0rem;
+    // margin-bottom: 5px;
+  }
+
+  .venue-card__address {
+    font-size: 0.76rem;
+    color: #777;
+  }
+
+  .venue-card__mapLink {
+    font-size: 0.3rem;
+    // margin-top: 8px;
+    display: inline-block;
+  }
+
+  .venue-card__pricing {
+    font-size: 0.7rem;
+    // margin-top: 12px;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .venue-card__categories {
+    // margin-top: 12px;
+
+    .venue-card__category {
+      // padding: 4px 0px;
+      font-size: 0.1rem;
+      // font-weight: 600;
+      text-transform: uppercase;
+      color: #fff;
+      // display: inline-block;
+    }
+  }
+
+  .contact-info {
+    // margin-top: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .venue-card__rate {
+    font-size: 0.8rem;
+    font-weight: 600;
+    // margin: 10px 0;
+    color: #333;
+  }
+
+  .venue-card__btn {
+    // display: inline-block;
+    // padding: 8px 16px;
+    // background-color: #0077ff;
+    color: #fff;
+    // border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    // color: black !important;
+    // background-color: #FF033E !important;
+    border: 1px solid;
+
+    &:hover {
+      color: white !important;
+      background-color: #C21E56 !important;
+      border: none;
+    }
+  }
+}
+
+/* Responsive Adjustments for 4K screens (min-width: 2560px) */
+@media (min-width: 2560px) {
+  .venue-card {
+    margin: 50px 0;
+  }
+
+  .venue-card__content {
+    padding: 40px 60px;
+  }
+
+  .venue-card__title {
+    font-size: 1.8rem;
+  }
+
+  .venue-card__address,
+  .venue-card__mapLink,
+  .venue-card__pricing {
+    font-size: 1.2rem;
+  }
+
+  .venue-card__rate {
+    font-size: 2.2rem;
+  }
+
+  .venue-card__btn {
+    font-size: 1.1rem;
+    padding: 15px 30px;
+  }
+}
+
+/* Additional Breakpoints for Extra Small Devices */
+@media (max-width: 576px) {
+  .venue-card__content {
+    padding: 12px 15px;
+  }
+}
